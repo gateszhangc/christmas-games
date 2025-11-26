@@ -10,9 +10,8 @@ const prettifyFromPath = (pathname: string) => {
 export function middleware(request: NextRequest) {
   const { pathname, search } = request.nextUrl
   const isGameDetail = pathname.startsWith('/en/g/')
-  const isWinterClash = pathname === '/winter-clash-3d' || pathname.startsWith('/winter-clash-3d/')
 
-  if (isGameDetail || isWinterClash) {
+  if (isGameDetail) {
     const params = new URLSearchParams(search)
 
     if (!params.has('game')) {
@@ -28,5 +27,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/en/g/:path*', '/winter-clash-3d', '/winter-clash-3d/:path*'],
+  matcher: ['/en/g/:path*'],
 }

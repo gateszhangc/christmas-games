@@ -106,7 +106,31 @@ npm run analyze
     └── diff.png        # 差异图
 ```
 
+## SEO 文件
+
+项目包含以下 SEO 相关文件：
+
+### robots.txt
+- 静态版本：`public/robots.txt`
+- 动态版本：`app/robots.ts`（Next.js 自动生成）
+- 访问：http://localhost:3002/robots.txt
+
+### sitemap.xml
+- 静态版本：`public/sitemap.xml`
+- 动态版本：`app/sitemap.ts`（Next.js 自动生成）
+- 访问：http://localhost:3002/sitemap.xml
+
+### 配置环境变量
+```bash
+# 复制环境变量模板
+cp .env.example .env.local
+
+# 编辑 .env.local，设置你的域名
+NEXT_PUBLIC_BASE_URL=https://yourdomain.com
+```
+
 ## 注意事项
 
 - 原网站会加载广告、分析等动态资源，即使禁用 JavaScript，也可能有 2-3% 的像素差异
 - 这个项目仅用于学习研究目的
+- robots.txt 和 sitemap.xml 中的域名需要根据实际部署情况修改

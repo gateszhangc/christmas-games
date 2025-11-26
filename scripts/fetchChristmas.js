@@ -2,7 +2,7 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
-const TARGET_URL = 'https://poki.com/en/g/winter-clash-3d';
+const TARGET_URL = 'https://poki.com/en/christmas';
 const DATA_DIR = path.join(__dirname, '../data');
 
 if (!fs.existsSync(DATA_DIR)) {
@@ -52,5 +52,5 @@ if (!fs.existsSync(DATA_DIR)) {
   console.log('✓ Saved full.html');
   
   await browser.close();
-  console.log('✓ Fetch complete!');
+  console.log('✓ Fetch complete! Christmas page content saved.');
 })();

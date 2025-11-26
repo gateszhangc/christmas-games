@@ -28,28 +28,28 @@ if (!fs.existsSync(DATA_DIR)) {
   
   if (headMatch) {
     fs.writeFileSync(
-      path.join(DATA_DIR, 'home-head.html'),
+      path.join(DATA_DIR, 'winter-clash-3d-head.html'),
       headMatch[1],
       'utf-8'
     );
-    console.log('✓ Saved home-head.html');
+    console.log('✓ Saved winter-clash-3d-head.html');
   }
   
   if (bodyMatch) {
     fs.writeFileSync(
-      path.join(DATA_DIR, 'home-body.html'),
+      path.join(DATA_DIR, 'winter-clash-3d-body.html'),
       bodyMatch[1],
       'utf-8'
     );
-    console.log('✓ Saved home-body.html');
+    console.log('✓ Saved winter-clash-3d-body.html');
   }
   
   fs.writeFileSync(
-    path.join(DATA_DIR, 'full.html'),
+    path.join(DATA_DIR, 'winter-clash-3d-full.html'),
     html,
     'utf-8'
   );
-  console.log('✓ Saved full.html');
+  console.log('✓ Saved winter-clash-3d-full.html');
   
   await browser.close();
   console.log('✓ Fetch complete!');

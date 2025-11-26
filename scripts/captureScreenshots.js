@@ -17,7 +17,7 @@ if (!fs.existsSync(SCREENSHOTS_DIR)) {
   
   console.log('Capturing original site...');
   const page1 = await context.newPage();
-  await page1.goto('https://poki.com/en/christmas', { waitUntil: 'networkidle' });
+  await page1.goto('https://poki.com/en/g/winter-clash-3d', { waitUntil: 'networkidle' });
   await page1.screenshot({
     path: path.join(SCREENSHOTS_DIR, 'original.png'),
     fullPage: true

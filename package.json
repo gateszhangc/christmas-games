@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "fetch": "node scripts/fetchSite.js",
+    "fetch-christmas": "node scripts/fetchChristmas.js",
     "update-original": "node scripts/updateOriginalHtml.js",
     "capture": "node scripts/captureScreenshots.js",
     "compare": "node scripts/compareScreenshots.js",

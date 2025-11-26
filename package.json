@@ -1,0 +1,32 @@
+{
+  "name": "poki-christmas-clone",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "fetch": "node scripts/fetchSite.js",
+    "update-original": "node scripts/updateOriginalHtml.js",
+    "capture": "node scripts/captureScreenshots.js",
+    "compare": "node scripts/compareScreenshots.js",
+    "analyze": "node scripts/analyzeRawDiff.js"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.22",
+    "pixelmatch": "^5.3.0",
+    "playwright": "^1.57.0",
+    "pngjs": "^7.0.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.0.0"
+  }
+}

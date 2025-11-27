@@ -74,21 +74,6 @@ export default function ComingSoonClient({ searchParams, navHtml, footerHtml }: 
       <div className="comingSoonBackdrop" />
 
       <div className="comingSoonContainer">
-        <div className="comingSoonNavBar">
-          {navHtml ? (
-            <div
-              className="comingSoonNav"
-              dangerouslySetInnerHTML={{ __html: navHtml }}
-              suppressHydrationWarning
-            />
-          ) : (
-            <div className="comingSoonBrand">
-              <div className="comingSoonLogo">🎄</div>
-              <span className="comingSoonBrandText">Christmas Games</span>
-            </div>
-          )}
-        </div>
-
         <main className="comingSoonShell">
           <div className="comingSoonCard">
             <div className="comingSoonTag">Coming soon</div>

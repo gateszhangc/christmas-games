@@ -71,56 +71,73 @@ export default function ComingSoonClient({ searchParams, navHtml, footerHtml }: 
 
   return (
     <div className="comingSoonPage">
-      {navHtml ? (
-        <div className="comingSoonNav" dangerouslySetInnerHTML={{ __html: navHtml }} suppressHydrationWarning />
-      ) : null}
+      <div className="comingSoonBackdrop" />
 
-      <main className="comingSoonShell">
-        <div className="comingSoonBackdrop" />
-        <div className="comingSoonCard">
-          <div className="comingSoonTag">Coming soon</div>
-          <h1 className="comingSoonTitle">{gameName} is on the way</h1>
-          <p className="comingSoonLead">
-            Sorry, this game page is still being built. Leave your email and we&apos;ll let you know the moment it
-            launches.
-          </p>
-
-          <form className="comingSoonForm" onSubmit={onSubmit}>
-            <label htmlFor="email" className="comingSoonLabel">
-              Notify me at
-            </label>
-            <div className="comingSoonInputRow">
-              <input
-                id="email"
-                name="email"
-                type="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                placeholder="you@example.com"
-                className="comingSoonInput"
-                required
-              />
-              <button type="submit" className="comingSoonButton">
-                Save &amp; notify me
-              </button>
+      <div className="comingSoonContainer">
+        <div className="comingSoonNavBar">
+          {navHtml ? (
+            <div
+              className="comingSoonNav"
+              dangerouslySetInnerHTML={{ __html: navHtml }}
+              suppressHydrationWarning
+            />
+          ) : (
+            <div className="comingSoonBrand">
+              <div className="comingSoonLogo">🎄</div>
+              <span className="comingSoonBrandText">Christmas Games</span>
             </div>
-            {message ? (
-              <p className={`comingSoonHint ${status === 'error' ? 'isError' : 'isSuccess'}`}>{message}</p>
-            ) : null}
-          </form>
-
-          <div className="comingSoonFooter">
-            <span className="comingSoonFrom">From: {searchParams.from ?? 'Home game list'}</span>
-            <Link href="/" className="comingSoonBack">
-              Back to home
-            </Link>
-          </div>
+          )}
         </div>
-      </main>
 
-      {footerHtml ? (
-        <div className="comingSoonFooterHolder" dangerouslySetInnerHTML={{ __html: footerHtml }} suppressHydrationWarning />
-      ) : null}
+        <main className="comingSoonShell">
+          <div className="comingSoonCard">
+            <div className="comingSoonTag">Coming soon</div>
+            <h1 className="comingSoonTitle">{gameName} is on the way</h1>
+            <p className="comingSoonLead">
+              Sorry, this page is still being built. Leave your email and we&apos;ll notify you the moment it goes live.
+            </p>
+            <div className="comingSoonMeta">
+              <span className="comingSoonChip">{searchParams.from ?? 'Home game list'}</span>
+            </div>
+
+            <form className="comingSoonForm" onSubmit={onSubmit}>
+              <label htmlFor="email" className="comingSoonLabel">
+                Notify me at
+              </label>
+              <div className="comingSoonInputRow">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  placeholder="you@example.com"
+                  className="comingSoonInput"
+                  required
+                />
+                <button type="submit" className="comingSoonButton">
+                  Save &amp; notify me
+                </button>
+              </div>
+              {message ? (
+                <p className={`comingSoonHint ${status === 'error' ? 'isError' : 'isSuccess'}`}>{message}</p>
+              ) : null}
+            </form>
+
+            <div className="comingSoonFooter">
+              <Link href="/" className="comingSoonBack">
+                Back to home
+              </Link>
+            </div>
+          </div>
+        </main>
+
+        {footerHtml ? (
+          <div className="comingSoonFooterHolder">
+            <div dangerouslySetInnerHTML={{ __html: footerHtml }} suppressHydrationWarning />
+          </div>
+        ) : null}
+      </div>
     </div>
   )
 }

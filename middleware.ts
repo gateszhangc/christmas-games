@@ -7,11 +7,30 @@ const prettifyFromPath = (pathname: string) => {
   return last.replace(/[-_]+/g, ' ').trim()
 }
 
+const categoryFallbacks = new Set([
+  '/en/winter',
+  '/en/skateboarding',
+  '/en/bike',
+  '/en/mobile',
+  '/en/shooting',
+  '/en/multiplayer',
+  '/en/nitrome',
+  '/en/skill',
+  '/en/arcade',
+  '/en/action',
+])
+
 export function middleware(request: NextRequest) {
   const { pathname, search } = request.nextUrl
   const isGameDetail = pathname.startsWith('/en/g/')
+  const isCategory = categoryFallbacks.has(pathname.replace(/\/$/, ''))
 
-  if (isGameDetail) {
+  // Keep Winter Clash 3D live page accessible
+  if (pathname === '/winter-clash-3d' || pathname.startsWith('/winter-clash-3d/')) {
+    return NextResponse.next()
+  }
+
+  if (isGameDetail || isCategory) {
     const params = new URLSearchParams(search)
 
     if (!params.has('game')) {
@@ -27,5 +46,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/en/g/:path*'],
+  matcher: ['/en/g/:path*', '/en/winter', '/en/skateboarding', '/en/bike', '/en/mobile', '/en/shooting', '/en/multiplayer', '/en/nitrome', '/en/skill', '/en/arcade', '/en/action'],
 }
